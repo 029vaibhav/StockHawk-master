@@ -171,7 +171,7 @@ public class Utils {
     }
 
     public static String fetchData(String url) throws IOException {
-        System.out.println(url);
+//        System.out.println(url);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
