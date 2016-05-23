@@ -66,7 +66,7 @@
             android:layout_weight="1"
             android:background="@drawable/radiobutton_selected"
             android:button="@null"
-            android:text="@string/no_data" />
+            android:text="@string/days5" />
 
         <RadioButton
             android:id="@+id/rbTime3m"
