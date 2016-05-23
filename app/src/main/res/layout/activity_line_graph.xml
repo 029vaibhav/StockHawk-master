@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rlPriceChartContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radio_group"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:background="@drawable/card_background"
+        android:gravity="center"
+        android:padding="2dp">
+
+        <LinearLayout
+            android:id="@+id/llChartProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/marker_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:indeterminate="true" />
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.v4.widget.ContentLoadingProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/card_background"
+        android:divider="?android:dividerVertical"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+
+        <RadioButton
+            android:id="@+id/rbTime5d"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selected"
+            android:button="@null"
+            android:text="@string/no_data" />
+
+        <RadioButton
+            android:id="@+id/rbTime3m"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selected"
+            android:button="@null"
+            android:text="3m" />
+
+
+        <RadioButton
+            android:id="@+id/rbTime6m"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selected"
+            android:button="@null"
+            android:text="6m" />
+
+        <RadioButton
+            android:id="@+id/rbTime1y"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selected"
+            android:button="@null"
+            android:text="1y" />
+
+        <RadioButton
+            android:id="@+id/rbTime3y"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selected"
+            android:button="@null"
+            android:text="3y" />
+
+    </RadioGroup>
+
+</RelativeLayout>
+
+

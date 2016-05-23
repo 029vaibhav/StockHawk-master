@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+
+    defaultConfig {
+        applicationId "com.example.sam_chordas.stockhawk"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.2.3'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+
+    }
+}
+repositories {
+    maven { url "https://jitpack.io"
+
+    }
+}
+
+dependencies {
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    apt 'net.simonvt.schematic:schematic-compiler:0.6.3'
+    compile 'net.simonvt.schematic:schematic:0.6.3'
+    compile 'com.android.support:design:23.3.0'
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.7@aar') {
+        transitive = true
+    }
+    compile 'com.android.support:cardview-v7:23.3.0'
+    compile 'com.github.chrisbanes:PhotoView:1.2.6'
+    compile 'com.jjoe64:graphview:4.0.1'
+    compile 'com.diogobernardino:williamchart:2.2'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    compile 'joda-time:joda-time:2.7'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+
+
+
+
+
+
+
+}
