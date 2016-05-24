@@ -14,4 +14,6 @@
     <string name="stock_not_available">يرجى التحقق من رمز الأسهم الخاصة بك </string>
     <string name="no_data">لا تتوفر بيانات </string>
     <string name="fab_add">إضافة المزيد من الرموز </string>
+    <string name="add_widget">إضافة القطعة </string>
+    <string name="duplicate_stock">يتم حفظ هذه الأسهم بالفعل! </string>
 </resources>

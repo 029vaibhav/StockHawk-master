@@ -15,12 +15,13 @@
     <string name="no_data">No data is available</string>
     <string name="fab_add">Add more symbols</string>
 
-    <string name="days5">5D</string>
-    <string name="months3">3M</string>
-    <string name="months6">6M</string>
-    <string name="year1">1Y</string>
-    <string name="year5">5Y</string>
-    <string name="appwidget_text">EXAMPLE</string>
+    <string name="days5" translatable="false">5D</string>
+    <string name="months3" translatable="false">3M</string>
+    <string name="months6" translatable="false">6M</string>
+    <string name="year1" translatable="false">1Y</string>
+    <string name="year5" translatable="false">5Y</string>
+    <string name="appwidget_text" translatable="false">Googl</string>
     <string name="add_widget">Add widget</string>
+    <string name="duplicate_stock">This stock is already saved !</string>
 
 </resources>

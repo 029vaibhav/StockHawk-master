@@ -1,7 +1,6 @@
 package com.sam_chordas.android.stockhawk.rest;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -17,7 +16,6 @@ import com.sam_chordas.android.stockhawk.data.QuoteColumns;
 import com.sam_chordas.android.stockhawk.data.QuoteProvider;
 import com.sam_chordas.android.stockhawk.touch_helper.ItemTouchHelperAdapter;
 import com.sam_chordas.android.stockhawk.touch_helper.ItemTouchHelperViewHolder;
-import com.sam_chordas.android.stockhawk.ui.LineGraph;
 
 import java.util.Locale;
 
@@ -94,7 +92,7 @@ public class QuoteCursorAdapter extends CursorRecyclerViewAdapter<QuoteCursorAda
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
-            implements ItemTouchHelperViewHolder, View.OnClickListener {
+            implements ItemTouchHelperViewHolder {
         public final TextView symbol;
         public final TextView bidPrice;
         public final TextView change;
@@ -105,7 +103,6 @@ public class QuoteCursorAdapter extends CursorRecyclerViewAdapter<QuoteCursorAda
             symbol.setTypeface(robotoLight);
             bidPrice = (TextView) itemView.findViewById(R.id.bid_price);
             change = (TextView) itemView.findViewById(R.id.change);
-            itemView.setOnClickListener(this);
         }
 
         @Override
@@ -118,16 +115,5 @@ public class QuoteCursorAdapter extends CursorRecyclerViewAdapter<QuoteCursorAda
             itemView.setBackgroundColor(0);
         }
 
-        @Override
-        public void onClick(View v) {
-
-            Cursor c = getCursor();
-            c.moveToPosition(getAdapterPosition());
-            String symbol = c.getString(c.getColumnIndex(QuoteColumns.SYMBOL));
-            Intent intent = new Intent(mContext, LineGraph.class);
-            intent.putExtra(QuoteColumns.SYMBOL, symbol);
-            mContext.startActivity(intent);
-
-        }
     }
 }

@@ -95,8 +95,13 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
         if (recyclerView != null) {
             recyclerView.addOnItemTouchListener(new RecyclerViewItemClickListener(this,
                     (v, position) -> {
-                        //TODO:
-                        // do something on item click
+                        if (mCursor != null && mCursor.getCount() > 0) {
+                            mCursor.moveToPosition(position);
+                            String symbol = mCursor.getString(mCursor.getColumnIndex(QuoteColumns.SYMBOL));
+                            Intent intent = new Intent(mContext, LineGraph.class);
+                            intent.putExtra(QuoteColumns.SYMBOL, symbol);
+                            mContext.startActivity(intent);
+                        }
                     }));
         }
         if (recyclerView != null) {
@@ -119,7 +124,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
                                         new String[]{input.toString()}, null);
                                 if (c.getCount() != 0) {
                                     Toast toast =
-                                            Toast.makeText(MyStocksActivity.this, "This stock is already saved!",
+                                            Toast.makeText(MyStocksActivity.this, getString(R.string.duplicate_stock),
                                                     Toast.LENGTH_LONG);
                                     toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
                                     toast.show();

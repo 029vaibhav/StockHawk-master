@@ -17,29 +17,17 @@ import com.sam_chordas.android.stockhawk.service.WidgetService;
  */
 public class NewAppWidget extends AppWidgetProvider {
 
-//    Intent mServiceIntent;
-//    @BindView(R.id.recycler_view)
-//    EmptyRecyclerView recyclerView;
-//    @BindView(R.id.emtpy_view)
-//    View emptyView;
-//    private QuoteCursorAdapter mCursorAdapter;
 
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-//        CharSequence widgetText = context.getString(R.string.appwidget_text);
-        // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
-
         Intent serviceIntent = new Intent(context, WidgetService.class);
         views.setRemoteAdapter(R.id.recycler_view, serviceIntent);
-        Intent intent = new Intent(context, MyStocksActivity.class);
-        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
-                0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//        views.setOnClickPendingIntent(R.id.recycler_view, pendingIntent);
+        Intent startActivityIntent = new Intent(context, MyStocksActivity.class);
+        PendingIntent startActivityPendingIntent = PendingIntent.getActivity(context, 0, startActivityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        views.setPendingIntentTemplate(R.id.recycler_view, startActivityPendingIntent);
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.recycler_view);
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
@@ -48,7 +36,6 @@ public class NewAppWidget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
-
         }
     }
 

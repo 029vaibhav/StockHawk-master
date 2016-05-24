@@ -78,6 +78,8 @@ public class CallsListRemoteViewsFactory implements RemoteViewsService.RemoteVie
         mCursor.moveToPosition(position);
         row.setTextViewText(R.id.stock_symbol, mCursor.getString(mCursor.getColumnIndex("symbol")));
         row.setTextViewText(R.id.bid_price, mCursor.getString(mCursor.getColumnIndex("bid_price")));
+        Intent fillInIntent = new Intent();
+        row.setOnClickFillInIntent(R.id.root_view, fillInIntent);
         return row;
     }
 
